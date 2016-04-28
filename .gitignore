@@ -1,0 +1,7 @@
+# ignore the raw data file from Carme:
+*.xls
+*.xlsx
+
+# ignore R temp files
+.Rhistory
+.Rdata
