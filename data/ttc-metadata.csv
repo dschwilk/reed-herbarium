@@ -1,49 +1,49 @@
-"variable","type","units","description"
-"cataloger","","",""
-"date_cataloged","","",""
-"reviewer","","",""
-"date_reviewed","","",""
-"status","","",""
-"AN_TTC","","",""
-"other_cataloged_num","","",""
-"collection_code","","",""
-"verbatim_family","","",""
-"verbatim_taxon","","",""
-"verbatim_common_name","","",""
-"synonymia","","",""
-"category","","",""
-"family","","",""
-"genus","","",""
-"species","","",""
-"author_sp","","",""
-"qualifier","","",""
-"infra_rank","","",""
-"infra_rank_name","","",""
-"author_rank","","",""
-"country","","",""
-"state_province","","",""
-"county","","",""
-"verbatim_location","","",""
-"location","","",""
-"site_description","","",""
-"associated_plants","","",""
-"verbatim_coordinates","","",""
-"elevation","","",""
-"managed_area_type","","",""
-"managed_area","","",""
-"collector","","",""
-"collector_num","","",""
-"verbatim_date","","",""
-"day","","",""
-"month","","",""
-"year","","",""
-"determined_by","","",""
-"determination_remarks","","",""
-"collecting_remarks","","",""
-"taxon_remarks","","",""
-"label_remarks","","",""
-"inventory_remarks","","",""
-"on_same_sheet","","",""
-"data_entry_issues","","",""
-"work_to_do","","",""
-"notes","","",""
+variable,type,description,,,,,,
+cataloger,string,The name of the person who creates the record. If the record is already created and we do not know who did it, the cataloger should be filled as 'unknown'. If the record exists but it doesn't have the Accession Number (AN) or it is '000000', the person who fills the field 'AN' with the number is the reviewer, not the cataloger,,,
+date_cataloged,date,The date the record is created (format: mm/dd/yyyy),,,,,,
+reviewer,string,The person who last edited the record that was already created. TTC existing records must be checked and adapted to the new database structure,,,,,,
+date_reviewed,date,The date the record is edited (format: mm/dd/yyyy),,,,,,
+status,string,Fill with: 'v' when the record has been updated,  'missing' when the record has not been located, Fill also the date in the field 'date_reviewed',,,,
+AN_TTC,text,Accession Number in the TTC Herbarium. Unique number. Code assigned to the specimen. Use correlative numbers. The AN is usually printed on the upper right corner of the herbarium sheet.,,,,,,
+other_cataloged_num,string,If the specimen belonged in the past to another herbarium, its AN might be on the sheet. Write the AN plus the acronym or the complete name of the herbarium in this field, i.e., AN-name. Other numbers written on either the specimen, or label, or sheet. It there is more than one, enter them separated by a comma
+collection_code,string,Acronym created for the name of the collection, e.g.: PTX-Plants of Texas…,,,,,
+verbatim_family,string,Family name of the taxon as written on the label. May or not to be the currently accepted family name. Omit it if it is not on the label. Plant specimens are stored in the herbarium under family_herbarium not under verbatim_family,,,,,,
+verbatim_taxon,string,Complete name of the taxon as written on the label, with authorities if it is the case,,,,,
+verbatim_common_name,string,Common name of the plant, only if it is written on the label,,,,,
+synonymia,string,Synonyms used for this taxon. We check them on: http://plants.usda.gov/java/, http://www.theplantlist.org/, ,,,,
+category,string,Abbreviation of the group of the plants according to the schematic 'Organizations of the specimens in the TTC Herbarium' e.g., 'MO' for Monocots, 'DI' for Dicots…,,,,
+family,string,Plant family name assigned in the Herbarium. It could be different from the family assigned on the label. Last updated known family checked in the USDA website: http://plants.usda.gov./java/ I.e.: The collector could have named the plant family as Gramineae but the entry in the Herbarium could be as Poaceae,,,,,,
+genus,string,Plant name assigned in the Herbarium, even if it is not the name on the label. Last updated known family checked in the USDA website: http://plants.usda.gov./java/,,,,,
+species,string,Specific epitheth assigned in the Herbarium,,,,,,
+author_sp,string,Species' authority,,,,,,
+qualifier,string,Extra information associated with a taxon designation, e.g., a question mark, vel.aff., cf., …,
+infra_rank,string,Abbreviations, e.g.: subsp., var.,,,,
+infra_rank_name,string,Infraspecific name,,,,,,
+infra_rank_author,string,Authority of the infraspecific taxon,,,,,,
+country,string,Name of the country of the collection. Complete name except for USA,,,,,,
+state_province,string,Name of  the USA state where the specimen was collected. It could be written on the label or it could be assigned when the location permits to guess clearly which it is. For countries other than USA, this field is filled with the province, region, etc.,,,
+county,string,Name of the USA county,,,,,,
+verbatim_location,string,Name of the place where the specimen was collected, as written on the label. The information in this field sometimes will be broken down in different fields,,,,,
+location,string,Specific location written according rules from Specify6,,,,,,
+site_description,string,Description of the collection site. It could be about habitat, geology, soils, vegetation, slope…,,
+associated_plants,string,Name of the plants found in the same location as the specimen when it was collected: as recorded on the original label,,,,,,
+verbatim_coordinates,string,Numerical representation of the collecting location, if recorded on the label. The most common is latitude and longitude,,,,,
+elevation,string,Number and unit (abbreviation), e.g., ft (feet), m (meters),,,
+managed_area_code,string,Abbreviation of the managed area, e.g.: NP= National Park, SP= State Park… according to the list of managed areas,,,,
+managed_area,string,Complete name of the managed area,,,,,,
+collector,string,The collector (or collectors)  names, exactly as recorded on the label without any interpretation.  Specimens sometimes have single or several collectors. Write the name as is on the label. If there is more than one collector, separate them by a comma,,,,
+collector_num,string,Collector's number given by collectors and linked with their field notes.,,,,,,
+verbatim_date,string,The date of collection of the specimen as is written on the label (in the same format as written on label),,,,,,
+day,numeric,Day of collection (2 digits),,,,,,
+month,numeric,Month of collection with 2 digits (i.e. January=01, February=02,…),,,,
+year,numeric,Year of collection (4 digits),,,,,,
+determined_by,string,The person who identified the taxon, and the date it was determined preceded by the species name given by this person. Enter this info only if it is clearly marked on the label, sheet or on an additional label,,,,
+determination_remarks,string,Notes written on the label concerning the determination,,,,,,
+collecting_remarks,string,Information such as frequency, abundance, etc.,,,,
+taxon_remarks,string,Information about characteristics of the taxon or the specimen,,,,,,
+label_remarks,string,Other information on the label that does not fit in any other field,,,,,,
+inventory_remarks,string,Any remarks concerning a specimen storage. E.g.,  fruit in box, some parts in another place, B/W photo included …,,,
+on_same_sheet,string,Sometimes there is more than one specimen on the sheet. Write here the information about it,,,,,,
+data_entry_issues,string,Any question that you have that needs to be adressed to a data manager in order corrections can be made,,,,,,
+work_to_do,string,What kind of work is needed: new label, glue label, glue specimen,…,,,
+notes,string,For additional information,,,,,,
