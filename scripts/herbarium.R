@@ -3,24 +3,15 @@
 library(dplyr)
 library(ggplot2)
 
-
-# read linked tables
-ttc <- read.csv("../data/ttc.csv", sep="\t", quote="", stringsAsFactors=FALSE,
-                na.strings=c("","NA"))
-collections <- read.csv("../data/collections.csv", sep="\t", quote="",
-                        stringsAsFactors=FALSE, na.strings=c("","NA"))
-managed_area_types <-  read.csv("../data/managed_area_types.csv", sep="\t",
-                                quote="", stringsAsFactors=FALSE,
-                                na.strings=c("","NA"))
+source("./read-data.R")
 
 # Summary #
 names(ttc)
 nrow(ttc)
 
-sum(!is.na(ttc$location))
-sum(!is.na(ttc$verbatim_location))
-
-noloc <- subset(ttc, is.na(location))
+# number with status=="v"
+nrow(subset(ttc, status=="v"))
+#4984
 
 length(unique(ttc$AN_TTC))
 # 9280 with accession numbers, so over 10,000 without.
@@ -47,3 +38,16 @@ ggplot(aes(state_province, count), data=bystate[1:10,]) + geom_bar(stat="identit
   xlab("state/province") + ylab("# specimens collected")
 ggsave("../results/collections_by_state.pdf")
 
+# lets look just at entries with an AN
+ttc.an <- subset(ttc, !is.na(AN_TTC) & AN_TTC!="000000")
+nrow(ttc.an)
+     
+state_mex <- subset(ttc, state_province=="Mexico") %>% select(AN_TTC, family, genus, species, country, state_province)
+
+subset(ttc, country=="USA" & state_province=="Mexico")
+
+ttc.reviewed <- ttc.an %>% subset(!is.na(date_reviewed))
+
+
+ggplot(aes(state_province, count), data=bystate[1:10,]) + geom_bar(stat="identity") +
+  xlab("state/province") + ylab("# specimens collected")

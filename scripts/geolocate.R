@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 library(RJSONIO)
 library(RCurl)
 
@@ -36,11 +38,11 @@ glc2df <- function(glc, i) {
 }
 
 
-getLocation <- function(country, locality, state_province, county) {
+getLocation <- function(country, locality, state_province, county, delay=0) {
   q=paste(service_url, "country=", country,"&locality=", locality, "&state=",
           state_province, "&county=", county, GEO_OPTIONS, sep='')
   q=gsub(' ','%20',q)
-  
+  Sys.sleep(delay)
   tryCatch({
     JSONresponse = basicTextGatherer()
     curlPerform(url = q, writefunction = JSONresponse$update)
@@ -51,7 +53,7 @@ getLocation <- function(country, locality, state_province, county) {
       for (i in 1:numresults) {
         rlist[[i]] <- glc2df(glc, i)
       }
-      rdf <- rbind_all(rlist)
+      rdf <- bind_rows(rlist)
     } else {
       rdf <- data.frame(glcRank=1,
                        glcLatitude=NA,
@@ -80,5 +82,5 @@ getLocation <- function(country, locality, state_province, county) {
   })
 }
 
-##  td <- ttc[7000,]
+## td <- ttc[11,]
 ## tgeo <- getLocation(td$country, td$verbatim_location, td$state_province, td$county)
