@@ -3,7 +3,7 @@
 library(dplyr)
 library(ggplot2)
 
-source("./read-data.R")
+source("./read_data.R")
 
 # Summary #
 names(ttc)
@@ -51,3 +51,4 @@ ttc.reviewed <- ttc.an %>% subset(!is.na(date_reviewed))
 
 ggplot(aes(state_province, count), data=bystate[1:10,]) + geom_bar(stat="identity") +
   xlab("state/province") + ylab("# specimens collected")
+

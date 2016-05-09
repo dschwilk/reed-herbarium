@@ -15,5 +15,8 @@ managed_area_types <-  read.csv("../data/managed_area_types.csv", sep="\t",
                                 na.strings=c("","NA"))
 
 # some cleaning
-ttc <- mutate(ttc, location=ifelse(is.na(location), verbatim_location, location))
+ttc <- mutate(ttc, location=ifelse(is.na(location), verbatim_location, location),
+              year=as.numeric(year),
+              month=as.numeric(month),
+              day=as.numeric(day))
 
