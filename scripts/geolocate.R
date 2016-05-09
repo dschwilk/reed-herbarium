@@ -56,14 +56,14 @@ getLocation <- function(country, locality, state_province, county, delay=0) {
       rdf <- bind_rows(rlist)
     } else {
       rdf <- data.frame(glcRank=1,
-                       glcLatitude=NA,
-                       glcLongitude=NA,
-                       glcPrecision=NA,
-                       glcScore=NA,
-                       glcParsepattern=NA,
-                       glcUncert=NA,
-                       glcPoly=NA,
-                       stringsAsFactors=FALSE)
+                        glcLongitude=NA,
+                        glcLatitude=NA,
+                        glcPrecision=NA,
+                        glcScore=NA,
+                        glcParsepattern=NA,
+                        glcUncert=NA,
+                        glcPoly=NA,
+                        stringsAsFactors=FALSE)
     }
     return(rdf)
     
@@ -77,10 +77,10 @@ getLocation <- function(country, locality, state_province, county, delay=0) {
     glcParsepattern = NA
     glcUncert = NA
     glcPoly = NA
-    return(data.frame(glcRank,glcLatitude,glcLongitude,glcPrecision,
+    return(data.frame(glcRank,glcLongitude, glcLatitude, glcPrecision,
                       glcScore,glcParsepattern,glcUncert,glcPoly))
   })
 }
 
-## td <- ttc[11,]
-## tgeo <- getLocation(td$country, td$verbatim_location, td$state_province, td$county)
+ td <- ttc[11,]
+ tgeo <- getLocation(td$country, td$verbatim_location, td$state_province, td$county)
