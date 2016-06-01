@@ -13,6 +13,8 @@ nrow(ttc)
 nrow(subset(ttc, status=="v"))
 #4984
 
+nrow(subset(ttc, !is.na(status)))
+
 length(unique(ttc$AN_TTC))
 # 9280 with accession numbers, so over 10,000 without.
 
@@ -38,6 +40,16 @@ ggplot(aes(state_province, count), data=bystate[1:10,]) + geom_bar(stat="identit
   xlab("state/province") + ylab("# specimens collected")
 ggsave("../results/collections_by_state.pdf")
 
+## by country
+bycountry <- ttc %>% group_by(country) %>% summarize(count=length(year)) %>%
+  slice(order(count, decreasing=TRUE))
+
+ggplot(aes(country, count), data=bycountry) + geom_bar(stat="identity") +
+    xlab("country") + ylab("# specimens collected") +
+    scale_y_log10()
+ggsave("../results/collections_by_country.pdf")
+
+
 # lets look just at entries with an AN
 ttc.an <- subset(ttc, !is.na(AN_TTC) & AN_TTC!="000000")
 nrow(ttc.an)
@@ -47,7 +59,7 @@ state_mex <- subset(ttc, state_province=="Mexico") %>% select(AN_TTC, family, ge
 subset(ttc, country=="USA" & state_province=="Mexico")
 
 ttc.reviewed <- ttc.an %>% subset(!is.na(date_reviewed))
-
+subset(ttc.reviewed, country=="USA" & state_province=="Mexico")
 
 ggplot(aes(state_province, count), data=bystate[1:10,]) + geom_bar(stat="identity") +
   xlab("state/province") + ylab("# specimens collected")

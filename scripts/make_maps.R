@@ -7,12 +7,18 @@ library(scales)
 
 source("read_data.R")
 ## Maps ###
-coords <- read.csv("../data/coords.csv")
+coords <- read.csv("../data/coords.csv", stringsAsFactors=FALSE)
 
 
 # take first found geolocation
-coords <- coords %>% group_by(index) %>% slice(1) %>%
-  filter(glcPrecision=="High") %>% mutate(x=glcLongitude, y=glcLatitude)
+coords <- coords %>% group_by(index) %>% slice(1)
+
+coords <- coords %>% filter(!is.na(glcLongitude)) %>%
+    mutate(x=glcLongitude, y=glcLatitude)
+
+
+temp <- filter(coords, glcPrecision=="High")
+
 
 ttc$index <- row.names(ttc)
 ttc.coords <- merge(ttc, coords)
