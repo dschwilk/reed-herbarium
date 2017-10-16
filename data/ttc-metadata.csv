@@ -3,7 +3,7 @@
 "date_cataloged","date","The date the record is created (format: mm/dd/yyyy)",,,,,,
 "reviewer","string","The person who last edited the record that was already created. TTC existing records must be checked and adapted to the new database structure",,,,,,
 "date_reviewed","date","The date the record is edited (format: mm/dd/yyyy)",,,,,,
-"status","string","Fill with: 'v' when the record has been updated","  'missing' when the record has not been located"," Fill also the date in the field 'date_reviewed'",,,,
+"status","string","v = verified, missing=not found in cabinets, loan = ?, free=?","  'missing' when the record has not been located"," Fill also the date in the field 'date_reviewed'",,,,
 "AN_TTC","text","Accession Number in the TTC Herbarium. Unique number. The AN is usually printed on the upper right corner of the herbarium sheet. See Darwin Core catalogNumber.",,,,,,
 "other_cataloged_num","string","If the specimen belonged in the past to another herbarium"," its AN might be on the sheet. Write the AN plus the acronym or the complete name of the herbarium in this field"," i.e."," AN-name. Other numbers written on either the specimen"," or label"," or sheet. It there is more than one"," enter them separated by a comma"
 "collection_code","string","link to collections.csv collection_code"," e.g.: PTX-Plants of Texas…",,,,,
