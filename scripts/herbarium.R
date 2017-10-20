@@ -10,9 +10,9 @@ names(ttc)
 nrow(ttc)
 
 # number with status=="v"
-nrow(subset(ttc, status=="v"))
+nrow(subset(ttc, processing_status=="v"))
 
-nrow(subset(ttc, !is.na(status)))
+nrow(subset(ttc, !is.na(processing_status)))
 
 length(unique(ttc$AN_TTC))
 
@@ -23,6 +23,16 @@ nrow(ttc.an)
 # Number reviewed and confirmed:
 ttc.reviewed <- ttc.an %>% subset(!is.na(date_reviewed))
 nrow(ttc.reviewed)
+
+
+ttc <- filter(ttc, processing_status != "missing")
+
+## groups
+unique(ttc$category)
+
+filter(ttc, category=="LC")
+filter(ttc, category=="BN")
+
 
 ## Collections by year ##
 byear <- ttc %>% group_by(year) %>% summarize(count=length(year))
