@@ -26,7 +26,7 @@ glc2df <- function(glc, i) {
                    glcPrecision = glc$resultSet$features[[i]]$properties$precision,
                    glcScore = glc$resultSet$features[[i]]$properties$score,
                    glcParsepattern = glc$resultSet$features[[i]]$properties$parsePattern,
-                   glcUncert = glc$resultSet$features[[i]]$properties$uncertaintyRadiusMeters,
+                   glcUncert = as.numeric(glc$resultSet$features[[i]]$properties$uncertaintyRadiusMeters),
                    glcPoly = glc$resultSet$features[[i]]$properties$uncertaintyPolygon,
                    stringsAsFactors=FALSE)
 
@@ -69,11 +69,11 @@ getLocation <- function(country, locality, state_province, county, delay=0) {
     
   }, error = function(err) 
   {
-    glcRank  = 0
+    glcRank  = NA
     glcLongitude = NA
     glcLatitude = NA
     glcPrecision = "ERROR GETTING JSON"
-    glcScore = 0
+    glcScore = NA
     glcParsepattern = NA
     glcUncert = NA
     glcPoly = NA
@@ -82,5 +82,5 @@ getLocation <- function(country, locality, state_province, county, delay=0) {
   })
 }
 
- td <- ttc[11,]
- tgeo <- getLocation(td$country, td$verbatim_location, td$state_province, td$county)
+#td <- filter(ttc, catalogNumber=="TTC000007")
+#tgeo <- getLocation(td$country, td$verbatimLocality, td$stateProvince, td$county)

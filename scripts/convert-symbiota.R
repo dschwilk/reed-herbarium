@@ -53,7 +53,3 @@ ttc <- mutate(ttc, catalog_number = sprintf("TTC%06d", 1:nrow(ttc)))
 # change column names to camel case as Darwin Core
 names(ttc) <- camel_case(names(ttc))
 write.table(ttc, "../data/ttc.csv", sep="\t", quote=FALSE, row.names=FALSE, na="")
-
-
-
-
