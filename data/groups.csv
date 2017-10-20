@@ -1,15 +1,16 @@
-"category","group"
-"BN","Brown Algae"
-"DI","Dicots"
-"FN","Ferns"
-"FU","Fungus"
-"GA","Green Algae"
-"GY","Gymnosperms"
-"HN","Hornworts"
-"HS","Horsetails"
-"LV","Liveworts"
-"LY","Lycopods"
-"MO","Monocots"
-"MS","Mosses"
-"PS","Wisk Ferns"
-"RA","Red Algae"
+"category","group","order"
+"FU","Fungus",9
+"HN","Hornworts",1
+"LV","Liverworts",1
+"MS","Mosses",1
+"GA","Green Algae",7
+"LC","Lichen",8
+"BN","Brown Algae",7
+"RA","Red Algae",7
+"HS","Horsetails",2
+"LY","Lycopods",2
+"PS","Wisk Ferns",2
+"FN","Ferns",3
+"GY","Gymnosperms",4
+"MO","Monocots",5
+"DI","Dicots",6
